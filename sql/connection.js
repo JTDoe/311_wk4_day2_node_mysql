@@ -1,6 +1,6 @@
 const mysql = require('mysql')
 
-// require("dotenv").config();
+require("dotenv").config();
 
 // const { DB_HOST, DB_USER, DB_PASSWORD, DB_DATABASE, DB_PORT} = process.env;
 
@@ -10,10 +10,10 @@ class Connection {
       console.log('creating connection...')
       this.pool = mysql.createPool({
         connectionLimit: 100,
-        host: "database-1.co1wacd4cjz1.us-east-1.rds.amazonaws.com",
-        user: "admin",
-        password: "Lauren67890!",
-        database: "myFirstDatabase",
+        host: process.env.HOST,
+        user: process.env.USER,
+        password: process.env.PASSWORD,
+        database: process.env.DATABASE,
       })
 
       return this.pool
